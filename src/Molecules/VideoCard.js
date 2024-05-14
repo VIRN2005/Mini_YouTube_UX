@@ -1,32 +1,33 @@
-import React from "react";
-import styled from "styled-components";
-import Button from "./atoms/Button";
-import Icon from "./atoms/Icon";
-import VideoThumbnail from "../atoms/VideoThumbnail";
-import VideoTitle from "./atoms/VideoTitle";
-import Label from "./atoms/Label";
+import React from 'react';
+import styled from 'styled-components';
 
-const VideoCardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 300px;
-  margin: 1rem;
-  box-shadow: ${({ theme }) => theme.shadows.card};
-  border-radius: 0.25rem;
-  overflow: hidden;
+const CardContainer = styled.div`
+  width: 200px;
+  margin-right: 10px;
 `;
 
-// Carta de Cada Video para mostrarse en la HomePage
+const Thumbnail = styled.img`
+  width: 100%;
+  border-radius: 5px;
+`;
+
+const Title = styled.h3`
+  font-size: 14px;
+  margin: 5px 0;
+`;
+
+const Channel = styled.p`
+  font-size: 12px;
+  color: #555;
+`;
+
 const VideoCard = ({ video }) => {
   return (
-    <VideoCardContainer>
-      <VideoThumbnail src={video.thumbnail} alt={video.title} />
-      <VideoTitle>{video.title}</VideoTitle>
-      <Label>{video.description}</Label>
-      <Button>Watch Now</Button>
-      <Icon name="play" />
-    </VideoCardContainer>
+    <CardContainer>
+      <Thumbnail src={video.thumbnail} alt={video.title} />
+      <Title>{video.title}</Title>
+      <Channel>{video.channelName}</Channel>
+    </CardContainer>
   );
 };
 

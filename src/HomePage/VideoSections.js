@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoCard from './HomePage/VideoCard';
+import VideoCard from '../Molecules/VideoCard';
 
 const SectionContainer = styled.div`
   margin-top: 20px;

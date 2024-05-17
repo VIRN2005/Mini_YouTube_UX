@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoThumbnail from './Atoms/VideoThumbnail';
+import VideoThumbnail from "../Atoms/VideoThumbnails";
 
 const RecommendationsContainer = styled.div`
   display: flex;

@@ -1,4 +1,3 @@
-// SideBar.js
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../Atoms/Icon';
@@ -12,6 +11,13 @@ const SidebarContainer = styled.div`
   height: 100%;
   border-right: 1px solid #e0e0e0;
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding-top: 0;
+  }
 `;
 
 const MenuItem = styled.li`
@@ -31,10 +37,19 @@ const MenuIcon = styled.div`
 
 const LogoContainer = styled.div`
   padding: 20px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    padding: 10px 0;
+  }
 `;
 
 const Logo = styled.img`
   width: 100px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+  }
 `;
 
 const Sidebar = () => {
@@ -80,3 +95,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

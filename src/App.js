@@ -6,6 +6,7 @@ import VideoList from './Molecules/VideoList';
 import Navbar from './HomePage/NavBar';
 import Sidebar from './HomePage/SideBar';
 import ShortsList from './HomePage/ShortsList';
+import QuickBar from './HomePage/QuickBar';
 
 const theme = {
   colors: {
@@ -20,6 +21,10 @@ const AppContainer = styled.div`
   display: flex;
   background-color: ${({ theme }) => theme.colors.background};
   min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -27,12 +32,18 @@ const ContentContainer = styled.div`
   padding: 20px;
   margin-left: 240px;
   padding-top: 80px;
+  
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding-top: 20px;
+  }
 `;
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [shorts, setShorts] = useState([]);
-  const API_KEY = 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ'; // Reemplazar con tu clave de API de YouTube
+  const [error, setError] = useState(null);
+  const API_KEY = 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ'; 
 
   useEffect(() => {
     const fetchData = async (query, setResult) => {
@@ -47,6 +58,15 @@ const App = () => {
         });
         setResult(response.data.items);
       } catch (error) {
+        if (error.response) {
+          if (error.response.status === 403) {
+            setError('Acceso prohibido: verifica tu clave de API y permisos.');
+          } else {
+            setError(`Error: ${error.response.status} ${error.response.statusText}`);
+          }
+        } else {
+          setError('Error de red o de configuración.');
+        }
         console.error('Error fetching data:', error);
       }
     };
@@ -55,14 +75,18 @@ const App = () => {
     fetchData('react shorts', setShorts);
   }, []);
 
+  const quickBarItems = ['React', 'JavaScript', 'CSS', 'HTML', 'Node.js', 'Express', 'MongoDB', 'GraphQL', 'TypeScript', 'Redux'];
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
         <Sidebar />
         <ContentContainer>
           <Navbar />
-          <VideoSection title="Video Recommendations" videos={videos} />
-          <ShortsSection title="Shorts" videos={shorts} />
+          <QuickBar items={quickBarItems} /> {QuickBar}
+            <>
+              <VideoSection title="Recomendaciones de Videos" videos={videos} />
+              <ShortsSection title="Shorts" videos={shorts} />
+            </>
         </ContentContainer>
       </AppContainer>
     </ThemeProvider>

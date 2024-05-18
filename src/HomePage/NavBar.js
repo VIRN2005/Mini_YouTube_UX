@@ -19,26 +19,53 @@ const NavbarContainer = styled.div`
   width: 100%;
   top: 0;
   z-index: 1000;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
 `;
 
 const Logo = styled.img`
   height: 40px;
   margin-right: 20px;
+
+  @media (max-width: 768px) {
+    height: 30px;
+    margin-right: 10px;
+  }
 `;
 
 const NavbarLeft = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 const NavbarRight = styled.div`
   display: flex;
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
 `;
 
 const NotificationIcon = styled.div`
   margin-left: 20px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -46,6 +73,11 @@ const ProfileImage = styled.img`
   border-radius: 50%;
   height: 30px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    margin-left: 10px;
+    height: 25px;
+  }
 `;
 
 const Navbar = () => {
@@ -75,3 +107,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

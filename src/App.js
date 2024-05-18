@@ -4,8 +4,9 @@ import styled, { ThemeProvider } from 'styled-components';
 import VideoList from './VideoList';
 import Navbar from './HomePage/NavBar';
 import Sidebar from './HomePage/SideBar';
+import VideoCard from './VideoCard';
 
-// Define your theme
+
 const theme = {
   colors: {
     primary: '#FF0000', // YouTube red
@@ -39,15 +40,16 @@ const App = () => {
             part: 'snippet',
             maxResults: 10,
             q: 'react tutorials',
-            key: 'YOUR_API_KEY',
+            key: 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ',
           },
         });
+        console.log('Respuesta de la API de YouTube:', response.data); 
         setVideos(response.data.items);
       } catch (error) {
         console.error('Error fetching videos', error);
       }
     };
-
+  
     fetchVideos();
   }, []);
 

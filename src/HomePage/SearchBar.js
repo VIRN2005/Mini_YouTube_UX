@@ -34,7 +34,7 @@ const SearchBar = ({ value, onChange }) => {
     <SearchBarContainer>
       <SearchInput type="text" value={value} onChange={onChange} placeholder="Search" />
       <SearchButton>
-        <i className="icon-search" />
+        <i className="search" />
       </SearchButton>
     </SearchBarContainer>
   );

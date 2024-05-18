@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavbarLeft>
-        <Logo src="logo.png" alt="Logo" />
+      <Logo src="../Pics/YouTube.png" alt="YouTube Logo" /> 
         <SearchBar />
         <Button>
           <Icon name="mic" />

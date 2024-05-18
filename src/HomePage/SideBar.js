@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Icon from '../Atoms/Icon';
+import React from "react";
+import styled from "styled-components";
+import Icon from "../Atoms/Icon";
 
 const SidebarContainer = styled.div`
   width: 240px;
@@ -40,28 +40,37 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <LogoContainer>
-        <Logo src="logo.png" alt="Logo" />
+        <Logo src="#000000" alt="Logo1" />
       </LogoContainer>
       <ul>
         <MenuItem>
-          <MenuIcon><Icon name="home" /></MenuIcon>
+          <MenuIcon>
+            <Icon name="home" />
+          </MenuIcon>
           Home
         </MenuItem>
         <MenuItem>
-          <MenuIcon><Icon name="fire" /></MenuIcon>
+          <MenuIcon>
+            <Icon name="fire" />
+          </MenuIcon>
           Trending
         </MenuItem>
         <MenuItem>
-          <MenuIcon><Icon name="subscriptions" /></MenuIcon>
+          <MenuIcon>
+            <Icon name="subscriptions" />
+          </MenuIcon>
           Subscriptions
         </MenuItem>
-        <hr />
         <MenuItem>
-          <MenuIcon><Icon name="library" /></MenuIcon>
+          <MenuIcon>
+            <Icon name="library" />
+          </MenuIcon>
           Library
         </MenuItem>
         <MenuItem>
-          <MenuIcon><Icon name="history" /></MenuIcon>
+          <MenuIcon>
+            <Icon name="history" />
+          </MenuIcon>
           History
         </MenuItem>
       </ul>

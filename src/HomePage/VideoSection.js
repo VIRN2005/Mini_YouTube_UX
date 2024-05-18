@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoCard from './VideoCard';
+import VideoCard from '../Atoms/VideoCard';
 
 const SectionContainer = styled.div`
   margin-top: 20px;
@@ -16,13 +16,13 @@ const VideosContainer = styled.div`
   overflow-x: auto;
 `;
 
-const VideoSection = ({ title, videos }) => {
+const VideoSection = ({ title, videos, onVideoSelect }) => {
   return (
     <SectionContainer>
       <Title>{title}</Title>
       <VideosContainer>
         {videos.map((video) => (
-          <VideoCard key={video.id.videoId} video={video} />
+          <VideoCard key={video.id.videoId} video={video} onVideoSelect={onVideoSelect} />
         ))}
       </VideosContainer>
     </SectionContainer>

@@ -1,6 +1,9 @@
+// Navbar.js
 import React from 'react';
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faVideo, faTh } from '@fortawesome/free-solid-svg-icons';
+import SearchBar from '../HomePage/SearchBar';
 import Button from '../Atoms/Button';
 import Icon from '../Atoms/Icon';
 
@@ -33,6 +36,18 @@ const NavbarRight = styled.div`
   align-items: center;
 `;
 
+const NotificationIcon = styled.div`
+  margin-left: 20px;
+  cursor: pointer;
+`;
+
+const ProfileImage = styled.img`
+  margin-left: 20px;
+  border-radius: 50%;
+  height: 30px;
+  cursor: pointer;
+`;
+
 const Navbar = () => {
   return (
     <NavbarContainer>
@@ -45,17 +60,15 @@ const Navbar = () => {
       </NavbarLeft>
       <NavbarRight>
         <Button>
-          <Icon name="video" />
+          <FontAwesomeIcon icon={faVideo} />
         </Button>
         <Button>
-          <Icon name="apps" />
+          <FontAwesomeIcon icon={faTh} />
         </Button>
-        <Button>
-          <Icon name="notifications" />
-        </Button>
-        <Button>
-          <img src="profile.jpg" alt="Profile" style={{ borderRadius: '50%', height: '30px' }} />
-        </Button>
+        <NotificationIcon>
+          <FontAwesomeIcon icon={faBell} />
+        </NotificationIcon>
+        <ProfileImage src="profile.jpg" alt="Profile" />
       </NavbarRight>
     </NavbarContainer>
   );

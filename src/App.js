@@ -1,24 +1,24 @@
+// App.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled, { ThemeProvider } from 'styled-components';
-import VideoList from './VideoList';
+import VideoList from './Molecules/VideoList';
 import Navbar from './HomePage/NavBar';
 import Sidebar from './HomePage/SideBar';
-import VideoCard from './VideoCard';
-
+import ShortsList from './HomePage/ShortsList';
 
 const theme = {
   colors: {
-    primary: '#FF0000', // YouTube red
+    primary: '#FF0000',
     primaryHover: '#CC0000',
-    background: '#F9F9F9', // Light gray background
-    text: '#0F0F0F', // Dark text
+    background: '#F9F9F9',
+    text: '#0F0F0F',
   },
 };
 
 const AppContainer = styled.div`
   display: flex;
-  background-color: #f9f9f9;
+  background-color: ${({ theme }) => theme.colors.background};
   min-height: 100vh;
 `;
 
@@ -31,26 +31,28 @@ const ContentContainer = styled.div`
 
 const App = () => {
   const [videos, setVideos] = useState([]);
+  const [shorts, setShorts] = useState([]);
+  const API_KEY = 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ'; // Reemplazar con tu clave de API de YouTube
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const fetchData = async (query, setResult) => {
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
             part: 'snippet',
             maxResults: 10,
-            q: 'react tutorials',
-            key: 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ',
+            q: query,
+            key: API_KEY,
           },
         });
-        console.log('Respuesta de la API de YouTube:', response.data); 
-        setVideos(response.data.items);
+        setResult(response.data.items);
       } catch (error) {
-        console.error('Error fetching videos', error);
+        console.error('Error fetching data:', error);
       }
     };
-  
-    fetchVideos();
+
+    fetchData('react tutorials', setVideos);
+    fetchData('react shorts', setShorts);
   }, []);
 
   return (
@@ -59,11 +61,29 @@ const App = () => {
         <Sidebar />
         <ContentContainer>
           <Navbar />
-          <h1>Video Recommendations</h1>
-          <VideoList videos={videos} />
+          <VideoSection title="Video Recommendations" videos={videos} />
+          <ShortsSection title="Shorts" videos={shorts} />
         </ContentContainer>
       </AppContainer>
     </ThemeProvider>
+  );
+};
+
+const VideoSection = ({ title, videos }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <VideoList videos={videos} />
+    </div>
+  );
+};
+
+const ShortsSection = ({ title, videos }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <ShortsList videos={videos} />
+    </div>
   );
 };
 

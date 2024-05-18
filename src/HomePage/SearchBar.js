@@ -1,13 +1,16 @@
+// SearchBar.js
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const SearchBarContainer = styled.div`
   display: flex;
   align-items: center;
-  background-color: #f1f1f1;
-  padding: 5px;
-  border-radius: 2px;
-  margin-right: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
   width: 600px;
 `;
 
@@ -23,18 +26,29 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
-  background: #f1f1f1;
+  background: none;
   border: none;
   cursor: pointer;
-  padding: 0 10px;
 `;
 
-const SearchBar = ({ value, onChange }) => {
+const SearchBar = ({ value, onChange, onSubmit }) => {
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onSubmit();
+    }
+  };
+
   return (
     <SearchBarContainer>
-      <SearchInput type="text" value={value} onChange={onChange} placeholder="Search" />
-      <SearchButton>
-        <i className="icon-search" />
+      <SearchInput 
+        type="text" 
+        value={value} 
+        onChange={onChange} 
+        onKeyPress={handleKeyPress} 
+        placeholder="Search" 
+      />
+      <SearchButton onClick={onSubmit}>
+        <FontAwesomeIcon icon={faSearch} />
       </SearchButton>
     </SearchBarContainer>
   );

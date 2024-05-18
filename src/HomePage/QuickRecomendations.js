@@ -8,17 +8,11 @@ const RecommendationsContainer = styled.div`
   padding: 10px;
 `;
 
-const QuickRecommendations = () => {
-  const recommendations = [
-    { id: 1, thumbnail: 'video1.jpg' },
-    { id: 2, thumbnail: 'video2.jpg' },
-    { id: 3, thumbnail: 'video3.jpg' },
-  ];
-
+const QuickRecommendations = ({ recommendations }) => {
   return (
     <RecommendationsContainer>
       {recommendations.map((recommendation) => (
-        <VideoThumbnail key={recommendation.id} src={recommendation.thumbnail} />
+        <VideoThumbnail key={recommendation.id} src={recommendation.thumbnail} alt="Video thumbnail" />
       ))}
     </RecommendationsContainer>
   );

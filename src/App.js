@@ -5,12 +5,13 @@ import VideoList from './VideoList';
 import Navbar from './HomePage/NavBar';
 import Sidebar from './HomePage/SideBar';
 
+// Define your theme
 const theme = {
   colors: {
-    primary: '#FF0000',
+    primary: '#FF0000', // YouTube red
     primaryHover: '#CC0000',
-    background: '#FFFFFF',
-    text: '#000000',
+    background: '#F9F9F9', // Light gray background
+    text: '#0F0F0F', // Dark text
   },
 };
 

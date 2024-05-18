@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ButtonContainer = styled.button`
   background-color: ${({ theme }) => theme.colors.primary};
@@ -13,6 +13,7 @@ const ButtonContainer = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.primaryHover};
+    border-radius: 1.25rem;
   }
 `;
 

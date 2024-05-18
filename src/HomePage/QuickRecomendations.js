@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoThumbnail from "../Atoms/VideoThumbnails";
+import VideoThumbnail from '../Atoms/VideoThumbnail';
 
 const RecommendationsContainer = styled.div`
   display: flex;
@@ -13,7 +13,6 @@ const QuickRecommendations = () => {
     { id: 1, thumbnail: 'video1.jpg' },
     { id: 2, thumbnail: 'video2.jpg' },
     { id: 3, thumbnail: 'video3.jpg' },
-    // Agregar más videos que busquemos 
   ];
 
   return (

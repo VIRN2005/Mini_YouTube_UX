@@ -5,19 +5,29 @@ import Button from '../Atoms/Button';
 import Icon from '../Atoms/Icon';
 
 const NavbarContainer = styled.div`
-  background-color: #f00;
-  color: white;
+  background-color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+`;
+
+const Logo = styled.img`
+  height: 40px;
+  margin-right: 20px;
 `;
 
 const Navbar = () => {
   return (
     <NavbarContainer>
-      <div>
-        <img src="logo.png" alt="Logo" />
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <Logo src="logo.png" alt="Logo" />
         <SearchBar />
         <Button>
           <Icon name="mic" />
@@ -28,7 +38,7 @@ const Navbar = () => {
           <Icon name="notifications" />
         </Button>
         <Button>
-          <img src="profile.jpg" alt="Profile" />
+          <img src="profile.jpg" alt="Profile" style={{ borderRadius: '50%', height: '30px' }} />
         </Button>
       </div>
     </NavbarContainer>

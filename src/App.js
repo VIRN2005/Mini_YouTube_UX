@@ -1,6 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import styled, { ThemeProvider } from 'styled-components';
 import VideoList from './VideoList';
+import Navbar from './HomePage/NavBar';
+import Sidebar from './HomePage/SideBar';
+
+const theme = {
+  colors: {
+    primary: '#FF0000',
+    primaryHover: '#CC0000',
+    background: '#FFFFFF',
+    text: '#000000',
+  },
+};
+
+const AppContainer = styled.div`
+  display: flex;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  padding: 20px;
+  margin-left: 240px;
+  padding-top: 80px;
+`;
 
 const App = () => {
   const [videos, setVideos] = useState([]);
@@ -26,10 +51,16 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Video Recommendations</h1>
-      <VideoList videos={videos} />
-    </div>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <Sidebar />
+        <ContentContainer>
+          <Navbar />
+          <h1>Video Recommendations</h1>
+          <VideoList videos={videos} />
+        </ContentContainer>
+      </AppContainer>
+    </ThemeProvider>
   );
 };
 

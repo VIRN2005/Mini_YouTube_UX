@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import VideoCard from './VideoCard';
+import VideoCard from './Atoms/VideoCard';
 
 const VideoListContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 70px;
 `;
 
 const VideoList = ({ videos }) => {

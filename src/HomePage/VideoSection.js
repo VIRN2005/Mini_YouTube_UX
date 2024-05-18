@@ -22,7 +22,7 @@ const VideoSection = ({ title, videos }) => {
       <Title>{title}</Title>
       <VideosContainer>
         {videos.map((video) => (
-          <VideoCard key={video.id} video={video} />
+          <VideoCard key={video.id.videoId} video={video} />
         ))}
       </VideosContainer>
     </SectionContainer>

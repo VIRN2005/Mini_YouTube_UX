@@ -12,7 +12,7 @@ const VideoList = ({ videos }) => {
   return (
     <VideoListContainer>
       {videos.map((video) => (
-        <VideoCard key={video.id} video={video} />
+        <VideoCard key={video.id.videoId} video={video} />
       ))}
     </VideoListContainer>
   );

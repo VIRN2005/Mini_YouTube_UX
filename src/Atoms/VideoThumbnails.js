@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const VideoThumbnail = ({ src, alt }) => {
   return <img src={src} alt={alt} />;

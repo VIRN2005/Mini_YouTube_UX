@@ -24,9 +24,9 @@ const Channel = styled.p`
 const VideoCard = ({ video }) => {
   return (
     <CardContainer>
-      <Thumbnail src={video.thumbnail} alt={video.title} />
-      <Title>{video.title}</Title>
-      <Channel>{video.channelName}</Channel>
+      <Thumbnail src={video.snippet.thumbnails.default.url} alt={video.snippet.title} />
+      <Title>{video.snippet.title}</Title>
+      <Channel>{video.snippet.channelTitle}</Channel>
     </CardContainer>
   );
 };

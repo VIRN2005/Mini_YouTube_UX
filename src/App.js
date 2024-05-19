@@ -42,14 +42,15 @@ const ContentContainer = styled.div`
 `;
 
 const App = () => {
-  const [playlists, setPlaylists] = useState([]);
+  const [setPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [videosSeguir, setVideosSeguir] = useState([]);
   const [shorts, setShorts] = useState([]);
   const API_KEY = 'AIzaSyAUcIVXUIGOhyjQIg5wEU0Q8wBnharx0GY'; 
 
 
   useEffect(() => {
-    const fetchPlaylists = async (query,setResult) => {
+    const fetchPlaylists = async (setResult) => {
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
           params: {
@@ -65,7 +66,7 @@ const App = () => {
         console.error('Error fetching playlists:', error);
       }
     };
-    fetchPlaylists('musica',setPlaylists);
+    fetchPlaylists(setPlaylists);
   }, []);
 
   useEffect(() => {
@@ -74,7 +75,7 @@ const App = () => {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
             part: 'snippet',
-            maxResults: 10,
+            maxResults: 6,
             q: query,
             key: API_KEY,
           },
@@ -84,7 +85,8 @@ const App = () => {
         console.error('Error fetching data:', error);
       }
     };
-
+    
+    fetchData('musica', setVideosSeguir);
     fetchData('react tutorials', setVideos);
     fetchData('react shorts', setShorts);
   }, []);
@@ -98,6 +100,7 @@ const App = () => {
           <Navbar />
           <QuickBar items={quickBarItems} /> {QuickBar}
             <>
+              <VideoSection title="Continuar Viendo" videos={videosSeguir}/>
               <VideoSection title="Recomendaciones de Videos" videos={videos} />
               <PlaylistSection title = "Mi Mix" playlists={playlists}/>
               <ShortsSection title="Shorts" videos={shorts} />

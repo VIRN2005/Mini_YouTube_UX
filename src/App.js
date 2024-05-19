@@ -42,9 +42,10 @@ const ContentContainer = styled.div`
 `;
 
 const App = () => {
-  const [setPlaylists] = useState([]);
+  const [playlists,setPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
   const [videosSeguir, setVideosSeguir] = useState([]);
+  const [videosMiMix, setVideosMix] = useState([]);
   const [shorts, setShorts] = useState([]);
   const API_KEY = 'AIzaSyAUcIVXUIGOhyjQIg5wEU0Q8wBnharx0GY'; 
 
@@ -86,9 +87,10 @@ const App = () => {
       }
     };
     
+    fetchData('Futbol', setVideosMix);
     fetchData('musica', setVideosSeguir);
-    fetchData('react tutorials', setVideos);
-    fetchData('react shorts', setShorts);
+    fetchData('Kendrick Lamar y Drake', setVideos);
+    fetchData('gym shorts', setShorts);
   }, []);
 
   const quickBarItems = ['React', 'JavaScript', 'CSS', 'HTML', 'Node.js', 'Express', 'MongoDB', 'GraphQL', 'TypeScript', 'Redux'];
@@ -101,8 +103,9 @@ const App = () => {
           <QuickBar items={quickBarItems} /> {QuickBar}
             <>
               <VideoSection title="Continuar Viendo" videos={videosSeguir}/>
-              <VideoSection title="Recomendaciones de Videos" videos={videos} />
-              <PlaylistSection title = "Mi Mix" playlists={playlists}/>
+              <VideoSection title="Recomendaciones de Videos" videos={videosMiMix} />
+              <VideoSection title="Mi Mix" videos={videos} />
+              <PlaylistSection title = "Mi Mix Playlists" playlists={playlists}/>
               <ShortsSection title="Shorts" videos={shorts} />
             </>
         </ContentContainer>

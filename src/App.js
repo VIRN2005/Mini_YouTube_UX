@@ -47,7 +47,7 @@ const App = () => {
   const [videosSeguir, setVideosSeguir] = useState([]);
   const [videosMiMix, setVideosMix] = useState([]);
   const [shorts, setShorts] = useState([]);
-  const API_KEY = 'AIzaSyBBqrj6AWNxnsgZXf8xW2L_wMPfWsEJjY0'; 
+  const API_KEY = 'AIzaSyAgy3_haGfTW-LwH1SwIMWDz-09-UctK3s'; 
 
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const App = () => {
           params: {
             part: 'snippet,contentDetails',
             maxResults: 4,
-            channelId: 'UCLhpOkxKgLMC0qOo4gr_UcQ', 
+            channelId: 'AIzaSyDnEsobxGRjPtR3rtXlc6nMctHmCIkSjZk', 
             key: API_KEY,
           },
         });
@@ -90,7 +90,7 @@ const App = () => {
     fetchData('Real Madrid', setVideosMix); //Mix
     fetchData('musica', setVideosSeguir); //Seguir Viendo
     fetchData('Kendrick Lamar y Drake', setVideos); //Recomendados
-    fetchData('gym shorts', setShorts);
+    fetchData('soccer shorts', setShorts);
   }, []);
 
   const quickBarItems = ['Videos chistosos', 'JavaScript', 'Rock', 'Europa', 'Real Madrid'

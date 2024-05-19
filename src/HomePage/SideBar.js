@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../Atoms/Icon';
+import SubscriptionList from "../Molecules/SubscriptionList"
 
 const SidebarContainer = styled.div`
   width: 240px;
   background-color: #ffffff;
   color: #000000;
-  padding-top: 70px;
+  padding-top: 10px;
   position: fixed;
   height: 100%;
   border-right: 1px solid #e0e0e0;
@@ -15,7 +16,7 @@ const SidebarContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     height: auto;
-    position: relative;
+    position: center;
     padding-top: 0;
   }
 `;
@@ -36,16 +37,16 @@ const MenuIcon = styled.div`
 `;
 
 const LogoContainer = styled.div`
-  padding: 20px;
+  padding: 25px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 500px) {
     text-align: center;
-    padding: 10px 0;
+    padding: 0px 0;
   }
 `;
 
 const Logo = styled.img`
-  width: 100px;
+  width: 200px;
 
   @media (max-width: 768px) {
     width: 80px;
@@ -56,7 +57,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <LogoContainer>
-        <Logo src= './Youtube_Icon.png' alt="Logo" />
+        <Logo src= 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png' alt="Logo" />
       </LogoContainer>
       <ul>
         <MenuItem>
@@ -89,6 +90,7 @@ const Sidebar = () => {
           </MenuIcon>
           History
         </MenuItem>
+        <SubscriptionList/>
       </ul>
     </SidebarContainer>
   );

@@ -47,7 +47,7 @@ const App = () => {
   const [videosSeguir, setVideosSeguir] = useState([]);
   const [videosMiMix, setVideosMix] = useState([]);
   const [shorts, setShorts] = useState([]);
-  const API_KEY = 'AIzaSyDKX1E0RjlyufD3F9_yYon2KZUw-WAow7A'; 
+  const API_KEY = 'AIzaSyBBqrj6AWNxnsgZXf8xW2L_wMPfWsEJjY0'; 
 
 
   useEffect(() => {
@@ -87,7 +87,7 @@ const App = () => {
       }
     };
     
-    fetchData('Futbol', setVideosMix); //Mix
+    fetchData('Real Madrid', setVideosMix); //Mix
     fetchData('musica', setVideosSeguir); //Seguir Viendo
     fetchData('Kendrick Lamar y Drake', setVideos); //Recomendados
     fetchData('gym shorts', setShorts);
@@ -106,7 +106,6 @@ const App = () => {
               <VideoSection title="Continuar Viendo" videos={videosSeguir}/>
               <VideoSection title="Recomendaciones de Videos" videos={videosMiMix} />
               <VideoSection title="Mi Mix" videos={videos} />
-              <PlaylistSection title = "Mi Mix Playlists" playlists={playlists}/>
               <ShortsSection title="Shorts" videos={shorts} />
             </>
         </ContentContainer>

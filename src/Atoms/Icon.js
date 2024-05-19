@@ -13,6 +13,7 @@ import {
   faMicrophone,
   faVideo,
   faplay,
+  faBell
 } from "@fortawesome/free-solid-svg-icons";
 
 const Icon = ({ name }) => {
@@ -42,6 +43,9 @@ const Icon = ({ name }) => {
       break;
     case "video":
       iconToRender = faVideo;
+      break;
+    case "bell":
+      iconToRender = faBell;
       break;
     case "apps":
       iconToRender = faVideo;

@@ -1,11 +1,11 @@
 // Navbar.js
-import React from 'react';
-import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faVideo, faTh } from '@fortawesome/free-solid-svg-icons';
-import SearchBar from '../HomePage/SearchBar';
-import Button from '../Atoms/Button';
-import Icon from '../Atoms/Icon';
+import React from "react";
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell, faVideo, faTh } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "../HomePage/SearchBar";
+import Button from "../Atoms/Button";
+import Icon from "../Atoms/Icon";
 
 const NavbarContainer = styled.div`
   background-color: #ffffff;
@@ -23,7 +23,7 @@ const NavbarContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
-    padding: 10px;
+    padding: 0px;
   }
 `;
 
@@ -43,35 +43,15 @@ const NavbarLeft = styled.div`
   width: 100%;
 
   @media (max-width: 768px) {
-    justify-content: space-between;
-    width: 100%;
-  }
-`;
-
-const NavbarRight = styled.div`
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 768px) {
-    margin-top: 10px;
-    width: 100%;
     justify-content: flex-end;
-  }
-`;
-
-const NotificationIcon = styled.div`
-  margin-left: 20px;
-  cursor: pointer;
-
-  @media (max-width: 768px) {
-    margin-left: 10px;
+    width: 80%;
   }
 `;
 
 const ProfileImage = styled.img`
   margin-left: 20px;
-  border-radius: 50%;
-  height: 30px;
+  border-radius: 30%;
+  height: 50px;
   cursor: pointer;
 
   @media (max-width: 768px) {
@@ -84,27 +64,24 @@ const Navbar = () => {
   return (
     <NavbarContainer>
       <NavbarLeft>
-        <Logo src="logo.png" alt="Logo" />
+        <Logo src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTowJjFW22_21ogdZ9nauAIrOeNsODULE319wj_6iFeQA&s" alt="Logo" />
         <SearchBar />
         <Button>
           <Icon name="mic" />
         </Button>
-      </NavbarLeft>
-      <NavbarRight>
         <Button>
-          <FontAwesomeIcon icon={faVideo} />
+          <Icon name="video" />
         </Button>
         <Button>
           <FontAwesomeIcon icon={faTh} />
         </Button>
-        <NotificationIcon>
-          <FontAwesomeIcon icon={faBell} />
-        </NotificationIcon>
-        <ProfileImage src="profile.jpg" alt="Profile" />
-      </NavbarRight>
+        <Button>
+          <Icon name="bell" />
+        </Button>
+        <ProfileImage src="https://img.a.transfermarkt.technology/portrait/big/8198-1694609670.jpg?lm=1" alt="Profile" />
+      </NavbarLeft>
     </NavbarContainer>
   );
 };
 
 export default Navbar;
-

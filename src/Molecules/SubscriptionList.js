@@ -7,13 +7,15 @@ const SubscriptionListContainer = styled.div`
 
 const SubscriptionList = () => {
   const subscriptions = [
-    { id: 1, channelName: 'Channel 1' },
-    { id: 2, channelName: 'Channel 2' },
-    { id: 3, channelName: 'Channel 3' },
-    { id: 4, channelName: 'Channel 4' },
-    { id: 5, channelName: 'Channel 5' },
-    { id: 6, channelName: 'Channel 6' },
-    { id: 7, channelName: 'Channel 7' },
+    { id: 1, channelName: 'Real Madrid' },
+    { id: 2, channelName: 'DjMarioo' },
+    { id: 3, channelName: 'Mr. Beast' },
+    { id: 4, channelName: 'David Zuniga' },
+    { id: 5, channelName: 'Doc Tops' },
+    { id: 6, channelName: 'DrossRotzank' },
+    { id: 7, channelName: 'SKXKafei' },
+    { id: 7, channelName: 'Chelsea' },
+    { id: 7, channelName: 'Cristiano Ronaldo' },
   ];
 
   return (

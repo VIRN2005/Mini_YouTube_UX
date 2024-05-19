@@ -7,7 +7,7 @@ const ButtonContainer = styled.button`
   color: ${({ theme }) => theme.colors.background};
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 0rem;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s ease-in-out;

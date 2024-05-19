@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
   margin: 10px;
-  width: 280px; /* Ajustar tamaño de la tarjeta */
+  width: 240px; 
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  overflow: hidden; /* Evitar que las imágenes se desborden */
+  overflow: hidden; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 

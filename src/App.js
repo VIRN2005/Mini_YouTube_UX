@@ -7,6 +7,8 @@ import Navbar from './HomePage/NavBar';
 import Sidebar from './HomePage/SideBar';
 import ShortsList from './HomePage/ShortsList';
 import QuickBar from './HomePage/QuickBar';
+import PlaylistSection from './HomePage/PlaylistSection';
+
 
 const theme = {
   colors: {
@@ -40,10 +42,31 @@ const ContentContainer = styled.div`
 `;
 
 const App = () => {
+  const [playlists, setPlaylists] = useState([]);
   const [videos, setVideos] = useState([]);
   const [shorts, setShorts] = useState([]);
-  const [error, setError] = useState(null);
-  const API_KEY = 'AIzaSyCFThgeLaG_DHJC-c72v7u6DdI3l176RNQ'; 
+  const API_KEY = 'AIzaSyAUcIVXUIGOhyjQIg5wEU0Q8wBnharx0GY'; 
+
+
+  useEffect(() => {
+    const fetchPlaylists = async (query,setResult) => {
+      try {
+        const response = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
+          params: {
+            part: 'snippet,contentDetails',
+            maxResults: 4,
+            channelId: 'UCLhpOkxKgLMC0qOo4gr_UcQ', 
+            key: API_KEY,
+          },
+        });
+        setResult(response.data.items);
+      } catch (error) {
+        setError('Error al obtener las playlists.');
+        console.error('Error fetching playlists:', error);
+      }
+    };
+    fetchPlaylists('musica',setPlaylists);
+  }, []);
 
   useEffect(() => {
     const fetchData = async (query, setResult) => {
@@ -58,15 +81,6 @@ const App = () => {
         });
         setResult(response.data.items);
       } catch (error) {
-        if (error.response) {
-          if (error.response.status === 403) {
-            setError('Acceso prohibido: verifica tu clave de API y permisos.');
-          } else {
-            setError(`Error: ${error.response.status} ${error.response.statusText}`);
-          }
-        } else {
-          setError('Error de red o de configuración.');
-        }
         console.error('Error fetching data:', error);
       }
     };
@@ -85,6 +99,7 @@ const App = () => {
           <QuickBar items={quickBarItems} /> {QuickBar}
             <>
               <VideoSection title="Recomendaciones de Videos" videos={videos} />
+              <PlaylistSection title = "Mi Mix" playlists={playlists}/>
               <ShortsSection title="Shorts" videos={shorts} />
             </>
         </ContentContainer>

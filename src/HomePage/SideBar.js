@@ -56,7 +56,7 @@ const Sidebar = () => {
   return (
     <SidebarContainer>
       <LogoContainer>
-        <Logo src="YouTube_Icon.png" alt="Logo1234" />
+        <Logo src= './Youtube_Icon.png' alt="Logo" />
       </LogoContainer>
       <ul>
         <MenuItem>

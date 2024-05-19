@@ -47,7 +47,7 @@ const App = () => {
   const [videosSeguir, setVideosSeguir] = useState([]);
   const [videosMiMix, setVideosMix] = useState([]);
   const [shorts, setShorts] = useState([]);
-  const API_KEY = 'AIzaSyAUcIVXUIGOhyjQIg5wEU0Q8wBnharx0GY'; 
+  const API_KEY = 'AIzaSyDKX1E0RjlyufD3F9_yYon2KZUw-WAow7A'; 
 
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const App = () => {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
             part: 'snippet',
-            maxResults: 6,
+            maxResults: 4,
             q: query,
             key: API_KEY,
           },
@@ -87,13 +87,14 @@ const App = () => {
       }
     };
     
-    fetchData('Futbol', setVideosMix);
-    fetchData('musica', setVideosSeguir);
-    fetchData('Kendrick Lamar y Drake', setVideos);
+    fetchData('Futbol', setVideosMix); //Mix
+    fetchData('musica', setVideosSeguir); //Seguir Viendo
+    fetchData('Kendrick Lamar y Drake', setVideos); //Recomendados
     fetchData('gym shorts', setShorts);
   }, []);
 
-  const quickBarItems = ['React', 'JavaScript', 'CSS', 'HTML', 'Node.js', 'Express', 'MongoDB', 'GraphQL', 'TypeScript', 'Redux'];
+  const quickBarItems = ['Videos chistosos', 'JavaScript', 'Rock', 'Europa', 'Real Madrid'
+  , 'Pop', 'Gorillaz', 'Videojuegos', 'Anime', 'Peliculas'];
   return (
     <ThemeProvider theme={theme}>
       <AppContainer>
